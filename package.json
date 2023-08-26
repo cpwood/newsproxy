@@ -1,0 +1,19 @@
+{
+  "name": "newsproxy",
+  "version": "1.0.0",
+  "description": "A Docker-based M3U8 playlist generator and stream grabber for LiveNewsPro.com streaming services.",
+  "main": "app/server.js",
+  "type": "module",
+  "scripts": {
+    "run": "node app/server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "node-stringbuilder": "^2.2.6",
+    "querystring": "^0.2.1",
+    "superagent": "^8.1.2",
+    "uuid": "^8.3.2"
+  }
+}
