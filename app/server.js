@@ -84,7 +84,7 @@ const CHANNELS = [
     },
     {
         id: 'abc-news',
-        logo: 'abs-news-us.png',
+        logo: 'abc-news-us.png',
         name: 'ABC News (US)',
         url: 'https://livenewspro.com/abc-news/'
     },
@@ -96,7 +96,7 @@ const CHANNELS = [
     },
     {
         id: 'newsmaxtv',
-        logo: 'newsmax-tv.png',
+        logo: 'newsmax-tv-us.png',
         name: 'NewsMax TV',
         url: 'https://livenewspro.com/newsmax-tv/'
     },
@@ -161,7 +161,7 @@ app.get('/index.m3u8', async (req, res) => {
 
     for (const c of CHANNELS) {
         output.appendLine(`#EXTINF:-1 tvg-id="${index}" tvg-logo="https://raw.githubusercontent.com/cpwood/newsproxy/main/logos/${c.logo}",${c.name}`);
-        output.appendLine(`/${c.id}/master.m3u8`);
+        output.appendLine(`${process.env.NEWS_HOST ?? ''}/${c.id}/master.m3u8`);
         output.appendLine('');
 
         index++;

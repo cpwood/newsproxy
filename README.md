@@ -21,12 +21,15 @@ services:
     environment:
       - NEWS_USER: foo@bar.com
       - NEWS_PASSWORD: ffhsfhsh
+      - NEWS_HOST: http://192.168.1.2:8080
 ```
+
+The `NEWS_HOST` environment variable is optional. If specified, the contents of `index.m3u8` will use absolute URLs, starting with this host. This is handy if you have port-mapped the image to a different port number on your Docker host machine. If the environment variable _isn't_ specified, a relative URL will be used in the `index.m3u8` file.
 
 Alternatively, use the following example `docker` command:
 
 ```
-docker run -p 8080:8080 -e NEWS_USER=foo@bar.com -e NEWS_PASSWORD=ffhsfhsh cpwood/newsproxy:latest
+docker run -p 8080:8080 -e NEWS_USER=foo@bar.com -e NEWS_PASSWORD=ffhsfhsh -e NEWS_HOST=http://192.168.1.2:8080 cpwood/newsproxy:latest
 ```
 
 ## Using the running container
